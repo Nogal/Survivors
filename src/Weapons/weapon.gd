@@ -14,7 +14,7 @@ var attack_size = 1.0
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
 
-func level_up(level):
+func level_up():
 	match level:
 		1:
 			hp = 1
@@ -23,3 +23,4 @@ func level_up(level):
 			damage = 5
 			knockback = 100
 			attack_size = 1.0
+

@@ -7,11 +7,10 @@ extends Weapon
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	min_damage = min_damage + player.level
+	max_damage = max_damage + player.level
 	global_position = player.position
 	spawn_weapon()
-#	spawn_weapon()
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,16 +18,17 @@ func _process(delta):
 	global_position += angle * speed * delta
 	#level_up(level)
 	
-func enemy_hit(charge = 1):
-	hp -= charge
-	if hp >= 0:
+func enemy_hit(area):
+	if area.get_parent().is_in_group("enemy"):
+		hp -= 1
+	if hp <= 0:
 		queue_free()
 
 func spawn_weapon():
 #	print(get_tree())
 	var enemies = get_tree().get_nodes_in_group("enemy")
-#	if enemies:
-#		target = global_position.distance_to(enemies[0].global_position)
+	if enemies:
+		target = enemies[0].global_position
 	for enemy in enemies:
 		if global_position.distance_to(target) > global_position.distance_to(enemy.global_position):
 			target = enemy.global_position

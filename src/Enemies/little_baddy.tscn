@@ -1,9 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnhffw42pyp61"]
+[gd_scene load_steps=12 format=3 uid="uid://cnhffw42pyp61"]
 
 [ext_resource type="Texture2D" uid="uid://b6c00rp33kqli" path="res://assets/art/characters/satyr-Sheet.png" id="1_bil51"]
 [ext_resource type="Script" path="res://src/Enemies/enemy.gd" id="1_shp7j"]
 [ext_resource type="PackedScene" uid="uid://e3evc2d1u35a" path="res://src/Game/hurtbox.tscn" id="3_q2nun"]
 [ext_resource type="PackedScene" uid="uid://byjm3nfukrl6w" path="res://src/Game/hitbox.tscn" id="4_v75ka"]
+
+[sub_resource type="Animation" id="Animation_un6g0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
 
 [sub_resource type="Animation" id="Animation_uhpti"]
 resource_name = "walk"
@@ -22,8 +37,9 @@ tracks/0/keys = {
 "values": [9, 10, 11, 12, 13, 14, 15, 16]
 }
 
-[sub_resource type="Animation" id="Animation_un6g0"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_nhgyv"]
+resource_name = "die"
+step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,15 +47,30 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [9]
+"values": [27, 28, 29, 30, 31, 32, 33, 34]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s6o5y"]
 _data = {
 "RESET": SubResource("Animation_un6g0"),
+"die": SubResource("Animation_nhgyv"),
 "walk": SubResource("Animation_uhpti")
 }
 
