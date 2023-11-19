@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpr3j6bgp1eoh"]
+
+[ext_resource type="Script" path="res://src/Game/EnemySpawner.gd" id="1_hnsnd"]
+[ext_resource type="PackedScene" uid="uid://cnhffw42pyp61" path="res://src/Enemies/little_baddy.tscn" id="2_683go"]
+[ext_resource type="Script" path="res://src/Game/spawn_info.gd" id="2_wmgma"]
+
+[sub_resource type="Resource" id="Resource_0iowp"]
+script = ExtResource("2_wmgma")
+time_start = 1
+time_end = 60
+enemy = ExtResource("2_683go")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_hnsnd")
+spawns = Array[ExtResource("2_wmgma")]([SubResource("Resource_0iowp")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

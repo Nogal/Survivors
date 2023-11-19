@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://df4rc6vjsxjs4"]
+
+[ext_resource type="Script" path="res://src/Game/inventory.gd" id="1_kh1xd"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_kh1xd")
+
+[node name="Attack_1" type="Node2D" parent="."]
+
+[node name="Attack1Timer" type="Timer" parent="Attack_1"]
+wait_time = 2.5
+
+[connection signal="timeout" from="Attack_1/Attack1Timer" to="." method="_on_attack_timer_timeout" binds= [0]]

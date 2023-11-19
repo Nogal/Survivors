@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bhiq8dnrb73gp"
+path="res://.godot/imported/Of Far Different Nature - Liquid Flame [v2] (CC-BY 4.0).ogg-145ee9719289e78ee6436f4e4a38db46.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Of Far Different Nature - Liquid Flame [v2] (CC-BY 4.0).ogg"
+dest_files=["res://.godot/imported/Of Far Different Nature - Liquid Flame [v2] (CC-BY 4.0).ogg-145ee9719289e78ee6436f4e4a38db46.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

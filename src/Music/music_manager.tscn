@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6lqjilaieq3i"]
+
+[ext_resource type="Script" path="res://src/Game/MusicManager.gd" id="1_dk50m"]
+
+[node name="MusicManager" type="AudioStreamPlayer2D"]
+script = ExtResource("1_dk50m")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
